@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react'
-import { HorizontalListColumn } from './horizontal-list-column'
+import * as React from 'react'
+import { Fragment } from 'react'
 import {
   FlatListProps,
   FlatList,
   StyleProp,
   ViewStyle,
   ListRenderItem,
+  View,
 } from 'react-native'
 import chunk from 'lodash.chunk'
 
@@ -39,15 +40,13 @@ export const HorizontalFlatList = <ItemT extends any>(
       props.keyExtractor(item as ItemT, row, col),
     )
     return (
-      <HorizontalListColumn
-        key={keys.join('-')}
-        constainerStyle={props.columnStyle}
-        items={items.map((item: ItemT, row) => (
+      <View key={keys.join('-')} style={props.columnStyle}>
+        {items.map((item: ItemT, row) => (
           <Fragment key={keys[row]}>
             {props.renderItem({ item, row, col })}
           </Fragment>
         ))}
-      />
+      </View>
     )
   }
 

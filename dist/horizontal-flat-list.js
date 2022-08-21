@@ -27,16 +27,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HorizontalFlatList = void 0;
-const react_1 = __importStar(require("react"));
-const horizontal_list_column_1 = require("./horizontal-list-column");
+const React = __importStar(require("react"));
+const react_1 = require("react");
 const react_native_1 = require("react-native");
 const lodash_chunk_1 = __importDefault(require("lodash.chunk"));
 const HorizontalFlatList = (props) => {
     const renderItems = ({ item: items, index: col, }) => {
         const keys = items.map((item, row) => props.keyExtractor(item, row, col));
-        return (<horizontal_list_column_1.HorizontalListColumn key={keys.join('-')} constainerStyle={props.columnStyle} items={items.map((item, row) => (<react_1.Fragment key={keys[row]}>
+        return (<react_native_1.View key={keys.join('-')} style={props.columnStyle}>
+        {items.map((item, row) => (<react_1.Fragment key={keys[row]}>
             {props.renderItem({ item, row, col })}
-          </react_1.Fragment>))}/>);
+          </react_1.Fragment>))}
+      </react_native_1.View>);
     };
     const convertedProps = Object.assign(Object.assign({}, props), { data: (0, lodash_chunk_1.default)(props.data, props.numRows), renderItem: renderItems, keyExtractor: undefined, horizontal: true });
     return <react_native_1.FlatList {...convertedProps}/>;

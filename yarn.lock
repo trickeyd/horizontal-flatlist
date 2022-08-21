@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@idiosync/horizontal-flatlist@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@idiosync/horizontal-flatlist/-/horizontal-flatlist-1.0.6.tgz#7e29da1c717ca5c239c7adc89b0e1dc85d89b2fc"
+  integrity sha512-/8X9rTqrEtLS93BYdWqA3VtAG72j7v5NV+/Gwqed79YdD7dCZT/9ZqqfZToXpxXN42vRNgTkYyMInPHhWkzJpg==
+  dependencies:
+    lodash.chunk "^4.2.0"
+
 "@types/lodash.chunk@^4.2.7":
   version "4.2.7"
   resolved "https://registry.yarnpkg.com/@types/lodash.chunk/-/lodash.chunk-4.2.7.tgz#df52478072f0673d9fe8d3dd43af8f490d07a56a"

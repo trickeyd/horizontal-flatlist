@@ -5,7 +5,7 @@
     "lib": ["es2020"],
     "allowJs": true,
     "jsx": "react-native",
-    "outDir": "./lib",
+    "outDir": "./dist",
     "strict": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,

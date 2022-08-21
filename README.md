@@ -45,6 +45,23 @@ const SomeComponent = () => {
 }
 ```
 
+## Props
+
+Props are inherited form FlatListProps, but with the following changes:
+- renderItem - overidden to include the column number
+  ({ item: ItemT row: number col: number}) => JSX.Element
+
+- keyExtractor - overidden to include the column number
+  (item: ItemT row: number col: number) => string
+
+- numRows - Number of items in each column
+- columnStyle - ViewStyle  for the column view
+ 
+- horizontal - removed
+- numColumns - removed
+ 
+In addition, the following props have been added:
+
 [npm-image]: https://img.shields.io/npm/v/@idiosync/horizontal-flatlise
 [npm-url]: https://www.npmjs.com/package/@idiosync/horizontal-flatlise
  
