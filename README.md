@@ -35,12 +35,19 @@ const SomeComponent = () => {
     'six'
   ]
 
-  const renderItem = () => {
-
+  const renderItem = ({item, row, col}) => {
+    <Text>{item}</Text>
   }
+
+  const keyExtractor = (item, row, col) => item 
  
   return (
-    <HorizontalFlatList numRows={2} data={data} />
+    <HorizontalFlatList
+      data={data}
+      numRows={2}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
+    />
   )
 }
 ```
@@ -48,17 +55,21 @@ const SomeComponent = () => {
 ## Props
 
 Props are inherited form FlatListProps, but with the following changes:
-- **renderItem** - overidden to include the column number
-  ({ item: ItemT row: number col: number}) => JSX.Element
+- **renderItem** - Overidden to include the column number
+``` ts
+({ item: ItemT, row: number, col: number}) => JSX.Element
+```
 
-- **keyExtractor** - overidden to include the column number
-  (item: ItemT row: number col: number) => string
-
+- **keyExtractor** - Overidden to include the column number
+``` ts
+(item: ItemT, row: number, col: number) => string
+```
+   
 - **numRows** - Number of items in each column
 - **columnStyle** - ViewStyle  for the column view
  
-- **horizontal** - removed
-- **numColumns** - removed
+- **horizontal** - Removed
+- **numColumns** - Removed
  
 [npm-image]: https://img.shields.io/npm/v/@idiosync/horizontal-flatlise
 [npm-url]: https://www.npmjs.com/package/@idiosync/horizontal-flatlise
