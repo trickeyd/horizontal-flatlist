@@ -1,0 +1,27 @@
+{
+  "name": "@idiosync/horizontal-flatlist",
+  "version": "1.0.0",
+  "description": "Provides the ability to specify number of rows to a horizontal React Native FlatList",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": "James Trickey",
+  "license": "MIT",
+  "keywords": ["react", "react-native", "React Natve", "FlatList", "horizontal", "flatlist", "rows"],
+  "scripts": {
+    "prepare": "yarn build",
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": ">16.9.0",
+    "react-native": ">0.50.0"
+  },
+  "dependencies": {
+    "lodash.chunk": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/react": ">16", 
+    "@types/react-native": ">0.50.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.4.4"
+  }
+}
