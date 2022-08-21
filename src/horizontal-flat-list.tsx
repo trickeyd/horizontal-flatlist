@@ -1,9 +1,15 @@
 import React, { Fragment } from 'react'
 import { HorizontalListColumn } from './horizontal-list-column'
-import { FlatListProps, FlatList, StyleProp, ViewStyle } from 'react-native'
-import { chunk } from 'lodash.chunk'
+import {
+  FlatListProps,
+  FlatList,
+  StyleProp,
+  ViewStyle,
+  ListRenderItem,
+} from 'react-native'
+import chunk from 'lodash.chunk'
 
-interface Props<ItemT>
+export interface HorizontalFlatListProps<ItemT>
   extends Omit<
     FlatListProps<ItemT>,
     'horizontal' | 'numColumns' | 'renderItem' | 'keyExtractor'
@@ -23,10 +29,15 @@ interface Props<ItemT>
 }
 
 export const HorizontalFlatList = <ItemT extends any>(
-  props: Props<ItemT>,
+  props: HorizontalFlatListProps<ItemT>,
 ): JSX.Element => {
-  const renderItems = ({ item: items, index: col }) => {
-    const keys = items.map((item, row) => props.keyExtractor(item, row, col))
+  const renderItems: ListRenderItem<ItemT[]> = ({
+    item: items,
+    index: col,
+  }) => {
+    const keys = items.map((item: ItemT, row: number) =>
+      props.keyExtractor(item as ItemT, row, col),
+    )
     return (
       <HorizontalListColumn
         key={keys.join('-')}
@@ -40,13 +51,13 @@ export const HorizontalFlatList = <ItemT extends any>(
     )
   }
 
-  return (
-    <FlatList
-      {...props}
-      data={chunk(props.data, props.numRows)}
-      renderItem={renderItems}
-      keyExtractor={undefined}
-      horizontal
-    />
-  )
+  const convertedProps = {
+    ...props,
+    data: chunk(props.data, props.numRows),
+    renderItem: renderItems,
+    keyExtractor: undefined,
+    horizontal: true,
+  } as FlatListProps<ItemT[]>
+
+  return <FlatList {...convertedProps} />
 }
