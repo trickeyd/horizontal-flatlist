@@ -71,6 +71,5 @@ Props are inherited form FlatListProps, but with the following changes:
 - **horizontal** - Removed
 - **numColumns** - Removed
  
-[npm-image]: https://img.shields.io/npm/v/@idiosync/horizontal-flatlise
-[npm-url]: https://www.npmjs.com/package/@idiosync/horizontal-flatlise
- 
+[npm-image]: https://img.shields.io/npm/v/@idiosync/horizontal-flatlist
+[npm-url]: https://www.npmjs.com/package/@idiosync/horizontal-flatlist
