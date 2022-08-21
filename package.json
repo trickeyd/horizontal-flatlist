@@ -1,6 +1,6 @@
 {
   "name": "@idiosync/horizontal-flatlist",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Provides the ability to specify number of rows to a horizontal React Native FlatList",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
